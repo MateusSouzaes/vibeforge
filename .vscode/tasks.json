@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🧪 Run All Tests",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/", "-v", "--tb=short"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": "$pytest",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "🧪 Run Unit Tests Only",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/unit/", "-v", "--tb=short"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🧪 Run Tests with Coverage",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "pytest",
+        "tests/",
+        "-v",
+        "--cov=src",
+        "--cov-report=term-missing",
+        "--cov-report=html"
+      ],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🚀 Run Automated Test Suite",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["run_tests.py"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "📊 View Coverage Report",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "http.server", "8000", "--directory", "htmlcov"],
+      "group": "test",
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "🔄 Watch Tests (Auto-run on changes)",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/", "-v", "--tb=short", "-x", "-vv"],
+      "group": "test",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    }
+  ]
+}
