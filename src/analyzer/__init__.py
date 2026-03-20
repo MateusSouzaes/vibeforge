@@ -9,6 +9,8 @@ from src.analyzer.models import (
     CommitHistoryAnalysis,
 )
 from src.analyzer.commit_extractor import CommitExtractor
+from src.analyzer.decision_analyzer import DecisionAnalyzer
+from src.analyzer.evolution_mapper import EvolutionMapper
 
 __all__ = [
     "CommitAuthor",
@@ -18,4 +20,6 @@ __all__ = [
     "AnalyzedCommit",
     "CommitHistoryAnalysis",
     "CommitExtractor",
+    "DecisionAnalyzer",
+    "EvolutionMapper",
 ]
